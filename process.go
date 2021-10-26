@@ -2,16 +2,14 @@ package main
 
 import (
     "fmt"
-    "os"
-    "path/filepath"
+    "github.com/shirou/gopsutil/host"
+    "github.com/shirou/gopsutil/load"
 )
 
 func main() {
-    matches, err := filepath.Glob("/proc/*/exe")
-    for _, file := range matches {
-        target, _ := os.Readlink(file)
-        if len(target) > 0 {
-            fmt.Printf("%+v\n",target)
-        }
-    }
+    infoStat, _ := host.Info()
+    fmt.Printf("Total processes: %d\n", infoStat.Procs)
+
+    miscStat, _ := load.Misc()
+    fmt.Printf("Running processes: %d\n", miscStat.ProcsRunning)
 }
