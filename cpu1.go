@@ -1,20 +1,18 @@
-func calcSingleCoreUsage(curr, prev linuxproc.CPUStat) float32 {
+import (
+	"log"
 
-  PrevIdle := prev.Idle + prev.IOWait
-  Idle := curr.Idle + curr.IOWait
+	linuxproc "github.com/c9s/goprocinfo/linux"
+)
 
-  PrevNonIdle := prev.User + prev.Nice + prev.System + prev.IRQ + prev.SoftIRQ + prev.Steal
-  NonIdle := curr.User + curr.Nice + curr.System + curr.IRQ + curr.SoftIRQ + curr.Steal
+stat, err := linuxproc.ReadStat("/proc/stat")
+if err != nil {
+	log.Fatal("stat read fail")
+}
 
-  PrevTotal := PrevIdle + PrevNonIdle
-  Total := Idle + NonIdle
-  // fmt.Println(PrevIdle, Idle, PrevNonIdle, NonIdle, PrevTotal, Total)
-
-  //  differentiate: actual value minus the previous one
-  totald := Total - PrevTotal
-  idled := Idle - PrevIdle
-
-  CPU_Percentage := (float32(totald) - float32(idled)) / float32(totald)
-
-  return CPU_Percentage
+for _, s := range stat.CPUStats {
+	s.User
+	s.Nice
+	s.System
+	s.Idle
+	s.IOWait
 }
