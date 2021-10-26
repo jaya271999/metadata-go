@@ -3,7 +3,7 @@ package main
 import (
     "fmt"
     "os"
-    "filepath"
+    "path/filepath"
 )
 
 func main() {
