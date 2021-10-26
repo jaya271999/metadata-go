@@ -3,7 +3,7 @@ package main
 import (
     "fmt"
     "os"
-    "path/filepath"
+    //"path/filepath"
 )
 
 func main() {
@@ -11,7 +11,7 @@ func main() {
     for _, file := range matches {
         target, _ := os.Readlink(file)
         if len(target) > 0 {
-            fmt.Printf("%+v\n", filepath.Base(target))
+            fmt.Printf("%+v\n",target)
         }
     }
 }
