@@ -1,7 +1,7 @@
-package ps
+package main
 
 import (
-     "github.com/mitchellh/go-ps"
+     ps "github.com/mitchellh/go-ps"
       
 )
 
