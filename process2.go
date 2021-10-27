@@ -1,8 +1,8 @@
 package main
 
 import (
-      ps "github.com/mitchellh/go-ps"
-      ... // other imports here...
+      "github.com/mitchellh/go-ps"
+      
 )
 
 func whatever(){
