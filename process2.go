@@ -1,3 +1,5 @@
+package main
+
 import (
       ps "github.com/mitchellh/go-ps"
       ... // other imports here...
