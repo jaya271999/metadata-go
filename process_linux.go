@@ -1,4 +1,4 @@
-package ps
+package main
 
 import (
 	"fmt"
