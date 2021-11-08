@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-    matches := filepath.Glob("/proc/*/exe")
+    matches, err := filepath.Glob("/proc/*/exe")
     for _, file := range matches {
         target, _ := os.Readlink(file)
         if len(target) > 0 {
