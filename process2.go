@@ -7,10 +7,10 @@ import (
 
 func whatever(){
     processList, err := ps.Processes()
-    if err != nil {
-        log.Println("ps.Processes() Failed, are you using windows?")
-        return
-    }
+//     if err != nil {
+//         log.Println("ps.Processes() Failed, are you using windows?")
+//         return
+//     }
 
     // map ages
     for x := range processList {
