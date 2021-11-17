@@ -16,8 +16,8 @@ func whatever(){
     for x := range processList {
         var process ps.Process
         process = processList[x]
-        log.Printf("%d\t%s\n",process.Pid(),process.Executable())
-//          Printf("%d\t%s\n",process.Pid(),process.Executable())
+//         log.Printf("%d\t%s\n",process.Pid(),process.Executable())
+         Printf("%d\t%s\n",process.Pid(),process.Executable())
 
         // do os.* stuff on the pid
     }
